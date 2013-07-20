@@ -16,11 +16,13 @@ public class Projeto extends ObjetoPersistente{
 
     private String nome;
     private String descricao;
+    private String situacao;
     private List<Tarefa> tarefas;
 
-    public Projeto(String nome, String descricao) {
+    public Projeto(String nome, String descricao, String situacao) {
         this.nome = nome;
         this.descricao = descricao;
+        this.situacao = situacao;
     }
 
     @Override

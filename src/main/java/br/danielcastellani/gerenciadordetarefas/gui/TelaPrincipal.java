@@ -29,21 +29,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuProjetos = new javax.swing.JMenu();
         jMenuItemListarProjetos = new javax.swing.JMenuItem();
         jMenuItemCriarProjeto = new javax.swing.JMenuItem();
         jMenuAjuda = new javax.swing.JMenu();
         jMenuItemSobre = new javax.swing.JMenuItem();
-
-        jMenuItem2.setText("jMenuItem2");
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -56,6 +56,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Edit");
         jMenuBar3.add(jMenu6);
+
+        jMenu1.setText("File");
+        jMenuBar4.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar4.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,7 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 283, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,7 +127,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaCriarNovoProjeto(evt);
     }//GEN-LAST:event_jMenuItemCriarProjetoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -130,7 +139,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItemCriarProjeto;
     private javax.swing.JMenuItem jMenuItemListarProjetos;
     private javax.swing.JMenuItem jMenuItemSobre;

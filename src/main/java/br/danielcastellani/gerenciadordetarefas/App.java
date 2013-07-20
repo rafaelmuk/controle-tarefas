@@ -11,10 +11,10 @@ public class App {
     public static void main(String[] args) {
         //remover depois
         List<Projeto> projetos = BancoDeDados.getBancoDeDados().getListaProjetos();
-        projetos.add(new Projeto("Projeto 1", "Ipson Loren 1"));
-        projetos.add(new Projeto("Projeto 2", "Ipson Loren 2"));
-        projetos.add(new Projeto("Projeto 3", "Ipson Loren 3"));
-        projetos.add(new Projeto("Projeto 4", "Ipson Loren 4"));
+        projetos.add(new Projeto("Projeto 1", "Ipson Loren 1","Em andamento"));
+        projetos.add(new Projeto("Projeto 2", "Ipson Loren 2","Parado"));
+        projetos.add(new Projeto("Projeto 3", "Ipson Loren 3","Finalizado"));
+        projetos.add(new Projeto("Projeto 4", "Ipson Loren 4","Em andamento"));
         TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaPrincipal();
     }
