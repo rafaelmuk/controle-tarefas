@@ -22,6 +22,12 @@ public class TelaProjetoFactory {
         return telaProjeto;
     }
 
+    public static TelaProjeto criaTelaVisualizarProjeto(Projeto projetoParaVisualizar) {
+        TelaProjeto telaProjeto = new TelaProjeto(TelaProjeto.OPCAO_VISUALIZAR_PROJETO, projetoParaVisualizar);
+        telaProjeto.atualizaTelaEditar(telaProjeto, projetoParaVisualizar);
+        return telaProjeto;
+    }
+
     
     
     

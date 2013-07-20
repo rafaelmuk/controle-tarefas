@@ -8,7 +8,7 @@ import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoEditar;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoRemover;
-import br.danielcastellani.gerenciadordetarefas.gui.ButtonVisualizarTarefa;
+import br.danielcastellani.gerenciadordetarefas.gui.ButtonVisualizarProjeto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaVisualizarTarefa;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.GridLayout;
@@ -59,7 +59,7 @@ public class TelaVisualizarTarefaControlador {
                 listagem.add(new JLabel(projeto.getDescricao()));
                 listagem.add(new ButtonProjetoEditar(projeto));
                 listagem.add(new ButtonProjetoRemover(projeto));
-                listagem.add(new ButtonVisualizarTarefa(projeto));
+                listagem.add(new ButtonVisualizarProjeto(projeto));
             }
         }
         telaVisualizarTarafa.pack();
