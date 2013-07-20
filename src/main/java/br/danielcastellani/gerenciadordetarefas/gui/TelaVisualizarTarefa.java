@@ -11,7 +11,7 @@ import br.danielcastellani.gerenciadordetarefas.controle.TelaProjetoListagemCont
  *
  * @author Daniel
  */
-public class TelaProjetoListagem extends javax.swing.JInternalFrame {
+public class TelaVisualizarTarefa extends javax.swing.JInternalFrame {
 
     TelaProjetoListagemControlador controlador;
     private TelaProjeto telaProjeto;
@@ -19,7 +19,7 @@ public class TelaProjetoListagem extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaProjetoListagem
      */
-    public TelaProjetoListagem() {
+    public TelaVisualizarTarefa() {
         initComponents();
     }
 

@@ -79,4 +79,19 @@ public class TelaPrincipalControlador {
         TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
         controladorListagem.atualizaListagem();
     }
+
+    public void VisualizarTarefa(Projeto projeto) {
+    TelaVisualizarTarefaControlador controladorListagem = (TelaVisualizarTarefaControlador) Contexto.getInstance().get(TelaVisualizarTarefaControlador.class.getCanonicalName());
+        controladorListagem.esconde();
+
+        if (telaProjetoEditar == null) {
+            telaProjetoEditar = TelaProjetoFactory.criaTelaEditarProjeto(projeto);
+            telaPrincipal.getContentPane().add(telaProjetoEditar);
+            System.out.print("hhhhhhhhhhhhhh");
+        }
+        telaProjetoEditar.setVisible(true);
+
+        TelaProjetoControlador controladorEditar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
+        controladorEditar.atualizaTelaEditar(projeto);   
+    }
 } 

@@ -9,7 +9,7 @@ import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoEditar;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoRemover;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonVisualizarTarefa;
-import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoListagem;
+import br.danielcastellani.gerenciadordetarefas.gui.TelaVisualizarTarefa;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.GridLayout;
 import java.util.List;
@@ -22,26 +22,26 @@ import javax.swing.JPanel;
  */
 public class TelaVisualizarTarefaControlador {
 
-    private TelaProjetoListagem telaProjetoListagem;
-    private String[] cabecalho = {"Nome", "Descrição", "Editar", "Remover"};
+    private TelaVisualizarTarefa telaVisualizarTarafa;
+    private String[] cabecalho = {"Nome", "Descrição", "Data_Venc", "Data_Cria","Data_fecha","Situação","","  Ações",""};
 
     public void listarProjetos() {
-        if (telaProjetoListagem == null) {
-            telaProjetoListagem = new TelaProjetoListagem();
+        if (telaVisualizarTarafa == null) {
+            telaVisualizarTarafa = new TelaVisualizarTarefa();
             TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
-            controlador.adicionarComponente(telaProjetoListagem);
+            controlador.adicionarComponente(telaVisualizarTarafa);
         }
         atualizaListagem();
     }
 
     void esconde() {
-        telaProjetoListagem.setVisible(false);
+        telaVisualizarTarafa.setVisible(false);
     }
 
     void atualizaListagem() {
         List<Projeto> projetos = BancoDeDados.getBancoDeDados().getListaProjetos();
 
-        JPanel listagem = telaProjetoListagem.getPanelListagem();
+        JPanel listagem = telaVisualizarTarafa.getPanelListagem();
         listagem.setLayout(new GridLayout(projetos.size() + 1, cabecalho.length));
 
         listagem.removeAll();
@@ -62,8 +62,8 @@ public class TelaVisualizarTarefaControlador {
                 listagem.add(new ButtonVisualizarTarefa(projeto));
             }
         }
-        telaProjetoListagem.pack();
-        telaProjetoListagem.setVisible(true);
-        telaProjetoListagem.repaint();
+        telaVisualizarTarafa.pack();
+        telaVisualizarTarafa.setVisible(true);
+        telaVisualizarTarafa.repaint();
     }
 }
