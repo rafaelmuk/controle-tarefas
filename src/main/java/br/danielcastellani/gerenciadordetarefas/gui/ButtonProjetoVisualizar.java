@@ -6,6 +6,7 @@ package br.danielcastellani.gerenciadordetarefas.gui;
 
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaPrincipalControlador;
+import br.danielcastellani.gerenciadordetarefas.controle.TelaVisualizarProjetoControlador;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import javax.swing.JButton;
 
@@ -14,11 +15,11 @@ import javax.swing.JButton;
  * @author Rafael
  */
 
-public class ButtonVisualizarProjeto extends JButton {
+public class ButtonProjetoVisualizar extends JButton {
 
     private Projeto projeto;
 
-    public ButtonVisualizarProjeto(Projeto projeto) {
+    public ButtonProjetoVisualizar(Projeto projeto) {
         this.projeto = projeto;
         this.setText("Visualizar");
 
@@ -30,7 +31,10 @@ public class ButtonVisualizarProjeto extends JButton {
     }
     
     public void VisualizarProjeto(java.awt.event.ActionEvent evt) {
-        TelaPrincipalControlador controladorTelaPrincipal = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
-        controladorTelaPrincipal.VisualizarProjeto(projeto);
+//        TelaVisualizarProjetoControlador controladorTelaVisualizarProjeto = (TelaVisualizarProjetoControlador) Contexto.getInstance().get(TelaVisualizarProjetoControlador.class.getCanonicalName());
+//        controladorTelaVisualizarProjeto.atualizaListagem();
+        TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
+        controlador.exibeTelaVisualizarProjeto(evt);
+        
     }
 }

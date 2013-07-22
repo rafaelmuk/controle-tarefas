@@ -22,7 +22,7 @@ public class TelaPrincipalControlador {
     private TelaPrincipal telaPrincipal;
     private TelaProjeto telaProjetoCriar;
     private TelaProjeto telaProjetoEditar;
-    private TelaProjeto telaProjetoVisualizar;
+    private TelaVisualizarProjetoControlador telaProjetoVisualizar;
 
     public TelaPrincipalControlador() {
         this.telaPrincipal = new TelaPrincipal();
@@ -35,6 +35,11 @@ public class TelaPrincipalControlador {
 
     public void exibeTelaProjetosListagem(ActionEvent evt) {
         TelaProjetoListagemControlador controlador = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
+        controlador.listarProjetos();
+    }
+    
+    public void exibeTelaVisualizarProjeto(ActionEvent evt) {
+        TelaVisualizarProjetoControlador controlador = (TelaVisualizarProjetoControlador) Contexto.getInstance().get(TelaVisualizarProjetoControlador.class.getCanonicalName());
         controlador.listarProjetos();
     }
 
@@ -82,17 +87,22 @@ public class TelaPrincipalControlador {
     }
 
     public void VisualizarProjeto(Projeto projeto) {
-    TelaVisualizarTarefaControlador controladorVisualizarListagem = (TelaVisualizarTarefaControlador) Contexto.getInstance().get(TelaVisualizarTarefaControlador.class.getCanonicalName());
-        controladorVisualizarListagem.esconde();
-
-        if (telaProjetoVisualizar == null) {
-            telaProjetoVisualizar = TelaProjetoFactory.criaTelaVisualizarProjeto(projeto);
-            telaPrincipal.getContentPane().add(telaProjetoVisualizar);
+      
+        TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
+        controladorListagem.esconde(); 
             
-        }
-        telaProjetoVisualizar.setVisible(true);
-
-       // TelaProjetoControlador controladorVisualizar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
-      //  controladorVisualizar.atualizaTelaVisualizar(projeto);   
+       this.telaProjetoVisualizar = new TelaVisualizarProjetoControlador();
     }
+//        if (telaProjetoVisualizar == null) {
+//            telaProjetoVisualizar = TelaProjetoFactory.criaTelaVisualizarProjeto();
+//            telaPrincipal.getContentPane().add(telaProjetoVisualizar);
+//            
+//        }
+//        telaProjetoVisualizar.setVisible(true);
+//
+//        TelaProjetoControlador controladorVisualizar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
+//        controladorVisualizar.atualizaTelaVisualizar(projeto);   
+//    }
+
+
 } 

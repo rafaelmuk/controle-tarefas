@@ -9,7 +9,7 @@ import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoEditar;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoRemover;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoListagem;
-import br.danielcastellani.gerenciadordetarefas.gui.ButtonVisualizarProjeto;
+import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoVisualizar;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.GridLayout;
 import java.util.List;
@@ -59,7 +59,7 @@ public class TelaProjetoListagemControlador {
                 listagem.add(new JLabel(projeto.getDescricao()));
                 listagem.add(new ButtonProjetoEditar(projeto));
                 listagem.add(new ButtonProjetoRemover(projeto));
-                listagem.add(new ButtonVisualizarProjeto(projeto));
+                listagem.add(new ButtonProjetoVisualizar(projeto));
             }
         }
         telaProjetoListagem.pack();
