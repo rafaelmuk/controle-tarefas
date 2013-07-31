@@ -16,7 +16,6 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
 
     public static int OPCAO_NOVO_PROJETO = 0;
     public static int OPCAO_EDITAR_PROJETO = 1;
-    public static int OPCAO_VISUALIZAR_PROJETO = 2;
     private Projeto projeto;
     private TelaProjetoControlador controlador;
     private int opcaoDaTela;
@@ -31,9 +30,6 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
             this.setTitle("Editar Projeto: " + projeto.getNome());
         } else if (opcao == OPCAO_NOVO_PROJETO) {
             this.setTitle("Criar Novo Projeto");
-        }else if (opcao == OPCAO_VISUALIZAR_PROJETO) {
-            System.out.println("jjjjjjjjjj");
-            this.setTitle("Projeto: " + projeto.getNome());
         }
         this.projeto = projeto;
         controlador = new TelaProjetoControlador(this);

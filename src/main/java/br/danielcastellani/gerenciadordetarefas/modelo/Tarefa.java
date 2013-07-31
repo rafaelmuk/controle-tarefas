@@ -24,6 +24,7 @@ public class Tarefa {
     public Tarefa(Projeto projeto, String nome, String descricao, GregorianCalendar dataVenc) {
         this.nome = nome;
         this.projeto = projeto;
+        this.nome = nome;
         this.descricao = descricao;
         this.data_Venc = dataVenc;
         this.data_Cria = new GregorianCalendar();

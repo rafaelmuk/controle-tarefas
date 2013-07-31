@@ -39,8 +39,13 @@ public class TelaPrincipalControlador {
     }
     
     public void exibeTelaVisualizarProjeto(ActionEvent evt) {
-        TelaVisualizarProjetoControlador controlador = (TelaVisualizarProjetoControlador) Contexto.getInstance().get(TelaVisualizarProjetoControlador.class.getCanonicalName());
-        controlador.listarProjetos();
+        TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
+        controladorListagem.esconde();
+        
+        TelaVisualizarProjetoControlador VisualizarProjeto = (TelaVisualizarProjetoControlador) Contexto.getInstance().get(TelaVisualizarProjetoControlador.class.getCanonicalName());
+                    System.out.println("jjjjjjjjjjjjjj");
+        VisualizarProjeto.listarTarefas();
+
     }
 
     public void exibeTelaCriarNovoProjeto(ActionEvent evt) {
@@ -85,24 +90,5 @@ public class TelaPrincipalControlador {
         TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
         controladorListagem.atualizaListagem();
     }
-
-    public void VisualizarProjeto(Projeto projeto) {
-      
-        TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
-        controladorListagem.esconde(); 
-            
-       this.telaProjetoVisualizar = new TelaVisualizarProjetoControlador();
-    }
-//        if (telaProjetoVisualizar == null) {
-//            telaProjetoVisualizar = TelaProjetoFactory.criaTelaVisualizarProjeto();
-//            telaPrincipal.getContentPane().add(telaProjetoVisualizar);
-//            
-//        }
-//        telaProjetoVisualizar.setVisible(true);
-//
-//        TelaProjetoControlador controladorVisualizar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
-//        controladorVisualizar.atualizaTelaVisualizar(projeto);   
-//    }
-
 
 } 

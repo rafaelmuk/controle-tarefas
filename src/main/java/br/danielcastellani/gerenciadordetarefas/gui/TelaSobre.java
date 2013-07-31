@@ -84,7 +84,7 @@ public class TelaSobre extends javax.swing.JInternalFrame {
         jTextPane2.setEditable(false);
         jTextPane2.setBackground(new java.awt.Color(240, 240, 240));
         jTextPane2.setBorder(null);
-        jTextPane2.setText("Daniel Castellani");
+        jTextPane2.setText("Rafael Andrade e Rocardo Vilela");
         jScrollPane3.setViewportView(jTextPane2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -152,7 +152,7 @@ public class TelaSobre extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();

@@ -7,6 +7,7 @@ package br.danielcastellani.gerenciadordetarefas.controle;
 import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
+import br.danielcastellani.gerenciadordetarefas.modelo.Tarefa;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +28,18 @@ public class TelaProjetoControlador {
 
         if (telaProjeto.isCriacao()) {
             BancoDeDados.getBancoDeDados().getListaProjetos().add(projeto);
+        }
+
+        limparCampos();
+        telaProjeto.setVisible(false);
+        JOptionPane.showMessageDialog(telaProjeto, "Projeto salvo com sucesso");
+    }
+    public void salvar(Tarefa tarefa) {
+        tarefa.setNome(telaProjeto.getTxtNome().getText());
+        tarefa.setDescricao(telaProjeto.getTxtDescricao().getText());
+
+        if (telaProjeto.isCriacao()) {
+            BancoDeDados.getBancoDeDados().getListaTarefas().add(tarefa);
         }
 
         limparCampos();
