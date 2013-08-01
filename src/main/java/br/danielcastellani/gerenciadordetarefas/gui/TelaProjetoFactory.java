@@ -4,7 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
 
-import br.danielcastellani.gerenciadordetarefas.controle.TelaVisualizarProjetoControlador;
+import br.danielcastellani.gerenciadordetarefas.controle.TelaTarefaListagemControlador;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 
 /**
@@ -21,14 +21,6 @@ public class TelaProjetoFactory {
         TelaProjeto telaProjeto = new TelaProjeto(TelaProjeto.OPCAO_EDITAR_PROJETO, projetoParaEditar);
         telaProjeto.atualizaTelaEditar(telaProjeto, projetoParaEditar);
         return telaProjeto;
-    }
-
-//    public static TelaVisualizarProjetoControlador criaTelaVisualizarProjeto(Projeto projetoParaVisualizar) {
-//        TelaVisualizarProjetoControlador telaProjeto = new TelaVisualizarProjetoControlador();
-//        return telaProjeto;
-//    }
-
-    
-    
+    }    
     
 }

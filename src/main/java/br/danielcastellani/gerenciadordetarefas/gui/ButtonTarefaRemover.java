@@ -19,14 +19,14 @@ public class ButtonTarefaRemover extends JButton {
     private Tarefa tarefa;
 
     public ButtonTarefaRemover(Tarefa tarefa) {
-        this.tarefa = tarefa;
-        this.setText("Remover");
-
-        addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                removerTarefa(evt);
-            }
-        });
+//        this.tarefa = tarefa;
+//        this.setText("Remover");
+//
+//        addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//               removerTarefa(evt);
+//            }
+//        });
     }
     
 //    public void removerTarefa(java.awt.event.ActionEvent evt) {

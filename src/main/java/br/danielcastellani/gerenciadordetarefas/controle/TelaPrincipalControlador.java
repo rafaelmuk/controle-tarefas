@@ -9,20 +9,18 @@ import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaPrincipal;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoFactory;
+import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefaListagem;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.event.ActionEvent;
 import javax.swing.JComponent;
 
-/**
- *
- * @author Daniel
- */
+
 public class TelaPrincipalControlador {
 
     private TelaPrincipal telaPrincipal;
     private TelaProjeto telaProjetoCriar;
     private TelaProjeto telaProjetoEditar;
-    private TelaVisualizarProjetoControlador telaProjetoVisualizar;
+    private TelaTarefaListagem telaProjetoVisualizar;
 
     public TelaPrincipalControlador() {
         this.telaPrincipal = new TelaPrincipal();
@@ -38,16 +36,10 @@ public class TelaPrincipalControlador {
         controlador.listarProjetos();
     }
     
-    public void exibeTelaVisualizarProjeto(ActionEvent evt) {
-        TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
-        controladorListagem.esconde();
-        
-        TelaVisualizarProjetoControlador VisualizarProjeto = (TelaVisualizarProjetoControlador) Contexto.getInstance().get(TelaVisualizarProjetoControlador.class.getCanonicalName());
-                    System.out.println("jjjjjjjjjjjjjj");
-        VisualizarProjeto.listarTarefas();
-
+    public void exibeTelaTarefasListagem(ActionEvent evt,Projeto projeto) {
+         TelaTarefaListagemControlador controlador = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
+        //controlador.listarTarefas(projeto);  
     }
-
     public void exibeTelaCriarNovoProjeto(ActionEvent evt) {
         criaTelaSeNaoExistir();
         telaProjetoCriar.pack();
@@ -67,6 +59,18 @@ public class TelaPrincipalControlador {
 
         TelaProjetoControlador controladorEditar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
         controladorEditar.atualizaTelaEditar(projeto);
+    }
+    public void visualizarProjeto(Projeto projeto){
+        TelaTarefaListagemControlador controladorListagem = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
+        controladorListagem.esconde();
+        
+        if (telaProjetoVisualizar == null) {
+            telaPrincipal.getContentPane().add(telaProjetoVisualizar);
+        }
+        
+        telaProjetoVisualizar.setVisible(true);
+        TelaTarefaListagemControlador controladorVisualizar = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
+        controladorVisualizar.atualizaTelaVisualizar(projeto);
     }
 
     public void exibeTelaPrincipal() {
