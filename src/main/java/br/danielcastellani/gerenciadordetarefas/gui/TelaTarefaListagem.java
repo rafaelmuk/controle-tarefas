@@ -3,32 +3,23 @@
  * and open the template in the editor.
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
-import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
-import br.danielcastellani.gerenciadordetarefas.controle.TelaProjetoControlador;
+
 import br.danielcastellani.gerenciadordetarefas.controle.TelaTarefaListagemControlador;
-import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
-import br.danielcastellani.gerenciadordetarefas.modelo.Tarefa;
-import javax.swing.JPanel;
 
 /**
  *
  * @author Rafael
  */
 public class TelaTarefaListagem extends javax.swing.JInternalFrame {
-    private TelaTarefaListagemControlador controlador;
-    private Tarefa tarefa;
-    private Projeto projeto;
 
     /**
-     * Creates new form TelaTarefa
+     * Creates new form TelaTarefaListagem
      */
-
-     public TelaTarefaListagem(Projeto projeto) {
-        this.projeto = projeto;
+    TelaTarefaListagemControlador controlador;
+    private TelaTarefa telaTarefa;
+    
+    public TelaTarefaListagem() {
         initComponents();
-        this.setTitle("Ver Projeto: " + projeto.getNome());
-        controlador = new TelaTarefaListagemControlador(this);
-        Contexto.getInstance().put(controlador.getClass().getCanonicalName(), controlador);
     }
 
     /**
@@ -40,67 +31,23 @@ public class TelaTarefaListagem extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LabelNome = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        LabelDescricao = new javax.swing.JLabel();
-        ScrollPaneDescricao = new javax.swing.JScrollPane();
-        TxtDescricao = new javax.swing.JTextField();
-        LabelSituacao = new javax.swing.JLabel();
-        ComboBoxSituacao = new javax.swing.JComboBox();
-        ButtonSalvar = new javax.swing.JButton();
-        ButtonCancelar = new javax.swing.JButton();
         panelListagem = new javax.swing.JPanel();
 
-        LabelNome.setText("Nome:");
+        setClosable(true);
+        setTitle("Listagem de Tarefas");
+        setPreferredSize(new java.awt.Dimension(461, 426));
 
-        txtNome.setName("txtNome"); // NOI18N
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-
-        LabelDescricao.setText("Descrição:");
-
-        TxtDescricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtDescricaoActionPerformed(evt);
-            }
-        });
-        ScrollPaneDescricao.setViewportView(TxtDescricao);
-
-        LabelSituacao.setText("Situação:");
-
-        ComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Em processo", "em processo", "parado" }));
-        ComboBoxSituacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxSituacaoActionPerformed(evt);
-            }
-        });
-
-        ButtonSalvar.setText("Salvar");
-        ButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSalvarActionPerformed(evt);
-            }
-        });
-
-        ButtonCancelar.setText("Cancelar");
-        ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancelarActionPerformed(evt);
-            }
-        });
+        panelListagem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout panelListagemLayout = new javax.swing.GroupLayout(panelListagem);
         panelListagem.setLayout(panelListagemLayout);
         panelListagemLayout.setHorizontalGroup(
             panelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
         panelListagemLayout.setVerticalGroup(
             panelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 336, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,105 +56,46 @@ public class TelaTarefaListagem extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LabelDescricao)
-                    .addComponent(ScrollPaneDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelSituacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 18, Short.MAX_VALUE)
-                                .addComponent(panelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56)
-                                .addComponent(ButtonSalvar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonCancelar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelListagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNome)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelDescricao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ScrollPaneDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LabelSituacao)
-                            .addComponent(ComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ButtonSalvar)
-                            .addComponent(ButtonCancelar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelListagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void TxtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDescricaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtDescricaoActionPerformed
-
-    private void ComboBoxSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxSituacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxSituacaoActionPerformed
-
-    private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
-//         controlador.fechar();
-    }//GEN-LAST:event_ButtonCancelarActionPerformed
-
-    private void ButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSalvarActionPerformed
-//        System.out.println("Salvando o projeto = " + tarefa);
-//        controlador.salvar(tarefa);
-    }//GEN-LAST:event_ButtonSalvarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonCancelar;
-    private javax.swing.JButton ButtonSalvar;
-    private javax.swing.JComboBox ComboBoxSituacao;
-    private javax.swing.JLabel LabelDescricao;
-    private javax.swing.JLabel LabelNome;
-    private javax.swing.JLabel LabelSituacao;
-    private javax.swing.JScrollPane ScrollPaneDescricao;
-    private javax.swing.JTextField TxtDescricao;
     private javax.swing.JPanel panelListagem;
-    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 
-    public void setProjeto(Projeto projeto) {
-        this.projeto=projeto;
-    }
 
-    public javax.swing.JTextField getTxtNome() {
-        return txtNome;
-    }
-    public javax.swing.JTextField getTxtDescricao() {
-        return TxtDescricao;
-    }
-
-    public JPanel getPanelListagem() {
+    public javax.swing.JPanel getPanelListagem() {
         return panelListagem;
+    }
+
+    /**
+     * @param panelListagem the panelListagem to set
+     */
+    public void setPanelListagem(javax.swing.JPanel panelListagem) {
+        this.panelListagem = panelListagem;
+    }
+
+    /**
+     * @return the telaTarefa
+     */
+    public TelaTarefa getTelaTarefa() {
+        return telaTarefa;
+    }
+
+    /**
+     * @param telaTarefa the telaProjeto to set
+     */
+    public void setTelaTarefa(TelaTarefa telaTarefa) {
+        this.telaTarefa = telaTarefa;
     }
 }

@@ -9,7 +9,7 @@ import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaPrincipal;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoFactory;
-import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefaListagem;
+import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefa;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.event.ActionEvent;
 import javax.swing.JComponent;
@@ -20,7 +20,7 @@ public class TelaPrincipalControlador {
     private TelaPrincipal telaPrincipal;
     private TelaProjeto telaProjetoCriar;
     private TelaProjeto telaProjetoEditar;
-    private TelaTarefaListagem telaProjetoVisualizar;
+    private TelaTarefa telaProjetoVisualizar;
 
     public TelaPrincipalControlador() {
         this.telaPrincipal = new TelaPrincipal();
@@ -38,7 +38,7 @@ public class TelaPrincipalControlador {
     
     public void exibeTelaTarefasListagem(ActionEvent evt,Projeto projeto) {
          TelaTarefaListagemControlador controlador = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
-        //controlador.listarTarefas(projeto);  
+         controlador.listarTarefas(projeto);  
     }
     public void exibeTelaCriarNovoProjeto(ActionEvent evt) {
         criaTelaSeNaoExistir();

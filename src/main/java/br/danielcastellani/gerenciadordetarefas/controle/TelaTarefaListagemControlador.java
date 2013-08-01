@@ -4,10 +4,17 @@
  */
 package br.danielcastellani.gerenciadordetarefas.controle;
 
+import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
+import br.danielcastellani.gerenciadordetarefas.gui.ButtonTarefaEditar;
+import br.danielcastellani.gerenciadordetarefas.gui.ButtonTarefaRemover;
+import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefa;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefaListagem;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
+import br.danielcastellani.gerenciadordetarefas.modelo.Tarefa;
 import java.awt.GridLayout;
+import java.util.List;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -26,7 +33,7 @@ public class TelaTarefaListagemControlador {
     }
     public void listarTarefas(Projeto projeto) {
         if (telaTarefaListagem == null) {
-            telaTarefaListagem = new TelaTarefaListagem(projeto);
+            telaTarefaListagem = new TelaTarefaListagem();
             TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
             controlador.adicionarComponente(telaTarefaListagem);
         }
@@ -38,27 +45,27 @@ public class TelaTarefaListagemControlador {
     }
 
     void atualizaListagem() {
-//        List<Tarefa> projetos = BancoDeDados.getBancoDeDados().getListaTarefas();
+        List<Tarefa> projetos = BancoDeDados.getBancoDeDados().getListaTarefas();
         JPanel listagem = telaTarefaListagem.getPanelListagem();
-        listagem.setLayout(new GridLayout(/*projetos.size() + 1, cabecalho.length*/));
+        listagem.setLayout(new GridLayout(tarefas.size() + 1, cabecalho.length));
 
-//        listagem.removeAll();
-//        System.gc();
-//
-//        if (projetos.isEmpty()) {
-//            listagem.add(new JLabel("Não existem projetos."));
-//        } else {
-//            for (String itemDeCabecalho : cabecalho) {
-//                listagem.add(new JLabel(itemDeCabecalho));
-//            }
-//
-//            for (Tarefa tarefa : projetos) {
-//                listagem.add(new JLabel(tarefa.getNome()));
-//                listagem.add(new JLabel(tarefa.getDescricao()));
-//                listagem.add(new ButtonTarefaEditar(tarefa));
-//                listagem.add(new ButtonTarefaRemover(tarefa));
-//            }
-//        }
+        listagem.removeAll();
+        System.gc();
+
+        if (projetos.isEmpty()) {
+            listagem.add(new JLabel("Não existem projetos."));
+        } else {
+            for (String itemDeCabecalho : cabecalho) {
+                listagem.add(new JLabel(itemDeCabecalho));
+            }
+
+            for (Tarefa tarefa : projetos) {
+                listagem.add(new JLabel(tarefa.getNome()));
+                listagem.add(new JLabel(tarefa.getDescricao()));
+                listagem.add(new ButtonTarefaEditar(tarefa));
+                listagem.add(new ButtonTarefaRemover(tarefa));
+            }
+        }
         telaTarefaListagem.pack();
         telaTarefaListagem.setVisible(true);
         telaTarefaListagem.repaint();
