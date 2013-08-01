@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 public class TelaTarefaListagemControlador {
 
     private TelaTarefaListagem telaTarefaListagem;
+    private TelaTarefa telaTarefa;
     private String[] cabecalho = {"Nome", "Descrição", "Data_Venc", "Data_Cria","Data_fecha","Situação","","  Ações",""};
     public TelaTarefaListagemControlador(){
 
@@ -45,21 +46,21 @@ public class TelaTarefaListagemControlador {
     }
 
     void atualizaListagem() {
-        List<Tarefa> projetos = BancoDeDados.getBancoDeDados().getListaTarefas();
+        List<Tarefa> tarefas = BancoDeDados.getBancoDeDados().getListaTarefas();
         JPanel listagem = telaTarefaListagem.getPanelListagem();
-        listagem.setLayout(new GridLayout(tarefas.size() + 1, cabecalho.length));
+        listagem.setLayout(new GridLayout(/*tarefas.size() + 1, cabecalho.length*/));
 
         listagem.removeAll();
         System.gc();
 
-        if (projetos.isEmpty()) {
+        if (tarefas.isEmpty()) {
             listagem.add(new JLabel("Não existem projetos."));
         } else {
             for (String itemDeCabecalho : cabecalho) {
                 listagem.add(new JLabel(itemDeCabecalho));
             }
 
-            for (Tarefa tarefa : projetos) {
+            for (Tarefa tarefa : tarefas) {
                 listagem.add(new JLabel(tarefa.getNome()));
                 listagem.add(new JLabel(tarefa.getDescricao()));
                 listagem.add(new ButtonTarefaEditar(tarefa));
@@ -70,9 +71,9 @@ public class TelaTarefaListagemControlador {
         telaTarefaListagem.setVisible(true);
         telaTarefaListagem.repaint();
     }
-    public void atualizaTelaVisualizar(Projeto projeto) {
-                    telaTarefaListagem.setProjeto(projeto);
-                    telaTarefaListagem.getTxtNome().setText(projeto.getNome());
-                    telaTarefaListagem.getTxtDescricao().setText(projeto.getDescricao());
-        }
+//    public void atualizaTelaVisualizar(Tarefa tarefa) {
+//                    telaTarefa.setTarefa(projeto);
+//                    telaTarefa.getTxtNome().setText(projeto.getNome());
+//                    telaTarefa.getTxtDescricao().setText(projeto.getDescricao());
+//        }
 }

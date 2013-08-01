@@ -4,12 +4,15 @@
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
 
+import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
+import br.danielcastellani.gerenciadordetarefas.modelo.Tarefa;
+
 /**
  *
  * @author Rafael
  */
 public class TelaTarefa extends javax.swing.JInternalFrame {
-
+    Tarefa tarefa;
     /**
      * Creates new form TelaTarefa
      */
@@ -143,4 +146,5 @@ public class TelaTarefa extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
 }

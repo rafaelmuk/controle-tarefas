@@ -4,6 +4,7 @@ import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaPrincipalControlador;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
+import br.danielcastellani.gerenciadordetarefas.modelo.Tarefa;
 import java.util.GregorianCalendar;
 import java.util.List;
 

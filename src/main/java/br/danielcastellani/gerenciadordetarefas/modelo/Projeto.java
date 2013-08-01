@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.modelo;
 
+import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.bd.ObjetoPersistente;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Projeto extends ObjetoPersistente{
 
     private String nome;
     private String descricao;
-    private List<Tarefa> tarefas;
+    private List<Tarefa> tarefas = BancoDeDados.getBancoDeDados().getListaTarefas();
 
     public Projeto(String nome, String descricao) {
         this.nome = nome;
