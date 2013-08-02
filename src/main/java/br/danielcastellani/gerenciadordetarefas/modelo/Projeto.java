@@ -6,7 +6,13 @@ package br.danielcastellani.gerenciadordetarefas.modelo;
 
 import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.bd.ObjetoPersistente;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 
 /**
@@ -17,7 +23,7 @@ public class Projeto extends ObjetoPersistente{
 
     private String nome;
     private String descricao;
-    private List<Tarefa> tarefas = BancoDeDados.getBancoDeDados().getListaTarefas();
+    private List<Tarefa> tarefas = new ArrayList<Tarefa>();
 
     public Projeto(String nome, String descricao) {
         this.nome = nome;
@@ -70,7 +76,9 @@ public class Projeto extends ObjetoPersistente{
     /**
      * @param tarefas the tarefas to set
      */
-    public void setTarefas(List<Tarefa> tarefas) {
-        this.tarefas = tarefas;
+    
+    public void setTarefas(String nome,String des,String data_venc,String data_cria,String data_termina,String Situacao) {
+       Tarefa t= new Tarefa(nome,des,data_venc,data_cria,data_termina,Situacao);
+        tarefas.add(t);
     }
 }

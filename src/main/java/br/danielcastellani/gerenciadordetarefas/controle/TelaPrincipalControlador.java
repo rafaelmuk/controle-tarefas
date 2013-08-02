@@ -10,7 +10,9 @@ import br.danielcastellani.gerenciadordetarefas.gui.TelaPrincipal;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoFactory;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefa;
+import br.danielcastellani.gerenciadordetarefas.gui.TelaTarefaFactory;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
+import br.danielcastellani.gerenciadordetarefas.modelo.Tarefa;
 import java.awt.event.ActionEvent;
 import javax.swing.JComponent;
 
@@ -20,7 +22,8 @@ public class TelaPrincipalControlador {
     private TelaPrincipal telaPrincipal;
     private TelaProjeto telaProjetoCriar;
     private TelaProjeto telaProjetoEditar;
-    private TelaTarefa telaProjetoVisualizar;
+    private TelaTarefa telaTarefaEditar;
+    private TelaTarefa telaTarefaCriar;
 
     public TelaPrincipalControlador() {
         this.telaPrincipal = new TelaPrincipal();
@@ -37,6 +40,8 @@ public class TelaPrincipalControlador {
     }
     
     public void exibeTelaTarefasListagem(ActionEvent evt,Projeto projeto) {
+         TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
+        controladorListagem.esconde();
          TelaTarefaListagemControlador controlador = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
          controlador.listarTarefas(projeto);  
     }
@@ -45,6 +50,15 @@ public class TelaPrincipalControlador {
         telaProjetoCriar.pack();
         telaProjetoCriar.setVisible(true);
         telaProjetoCriar.setProjeto(new Projeto());
+    }
+    public void exibeTelaCriarNovaTarefa(ActionEvent evt) {
+        TelaTarefaListagemControlador controladorListagem = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
+        controladorListagem.esconde();
+        
+        criaTelaSeNaoExistirTarefa();
+        telaTarefaCriar.pack();
+        telaTarefaCriar.setVisible(true);
+        telaTarefaCriar.setTarefa(new Tarefa());
     }
 
     public void editarProjeto(Projeto projeto) {
@@ -59,6 +73,20 @@ public class TelaPrincipalControlador {
 
         TelaProjetoControlador controladorEditar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
         controladorEditar.atualizaTelaEditar(projeto);
+    }
+    
+  public void editarTarefa(Tarefa tarefa) {
+        TelaTarefaListagemControlador controladorListagem = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
+        controladorListagem.esconde();
+
+        if (telaTarefaEditar == null) {
+            telaTarefaEditar = TelaTarefaFactory.criaTelaEditarTarefa(tarefa);
+            telaPrincipal.getContentPane().add(telaTarefaEditar);
+        }
+        telaTarefaEditar.setVisible(true);
+
+        TelaTarefaControlador controladorEditar = (TelaTarefaControlador) Contexto.getInstance().get(TelaTarefaControlador.class.getCanonicalName());
+        controladorEditar.atualizaTelaEditar(tarefa);
     }
 
     public void exibeTelaPrincipal() {
@@ -81,6 +109,19 @@ public class TelaPrincipalControlador {
 
         TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
         controladorListagem.atualizaListagem();
+    }
+    
+    public void removerTarefa(Tarefa tarefa,Projeto projeto) {
+        projeto.getTarefas().remove(tarefa);
+        TelaTarefaListagemControlador controladoListagem = (TelaTarefaListagemControlador) Contexto.getInstance().get(TelaTarefaListagemControlador.class.getCanonicalName());
+        controladoListagem.atualizaListagem(projeto);
+    }
+
+    private void criaTelaSeNaoExistirTarefa() {
+        //if (telaTarefaCriar == null) {
+            telaTarefaCriar = TelaTarefaFactory.criaTelaNovaTarefa();
+            telaPrincipal.getContentPane().add(telaTarefaCriar);
+        //}
     }
 
 } 

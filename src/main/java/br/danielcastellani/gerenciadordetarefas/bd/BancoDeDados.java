@@ -30,7 +30,7 @@ public class BancoDeDados {
      */
     private BancoDeDados() {
         projetos = new ArrayList<Projeto>();
-    //    tarefas = new ArrayList<Tarefa>();
+        tarefas = new ArrayList<Tarefa>();
     }
 
     /**

@@ -29,7 +29,7 @@ public class ButtonProjetoEditar extends JButton {
     }
     
     public void editarProjeto(java.awt.event.ActionEvent evt) {
-        TelaPrincipalControlador controladorTelaPrincipal = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
-        controladorTelaPrincipal.editarProjeto(projeto);
+//        TelaPrincipalControlador controladorTelaPrincipal = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
+//        controladorTelaPrincipal.editarProjeto(projeto);
     }
 }

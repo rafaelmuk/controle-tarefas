@@ -4,6 +4,8 @@
  */
 package br.danielcastellani.gerenciadordetarefas.modelo;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -11,38 +13,39 @@ import java.util.GregorianCalendar;
  * @author Rafael
  */
 
-public class Tarefa {
+public class Tarefa implements Serializable{
 
     private Projeto projeto;
     private String nome;
     private String descricao;
-    private GregorianCalendar data_Cria;
-    private GregorianCalendar data_Termina;
-    private GregorianCalendar data_Venc;
+    private String data_Cria;
+    private String data_Termina;
+    private String data_Venc;
     private String situacao;
     
-    public Tarefa(Projeto projeto, String nome, String descricao, GregorianCalendar dataVenc) {
-        this.nome = nome;
-        this.projeto = projeto;
+    public Tarefa(String nome, String descricao, String data_Venc,String data_Cria,String data_Termina,String Situacao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.data_Venc = dataVenc;
-        this.data_Cria = new GregorianCalendar();
+        this.data_Venc = data_Venc;
+        this.data_Cria = data_Cria;
+        this.data_Termina = data_Termina;
+        this.situacao = Situacao;
         this.situacao = "A Fazer";
     }
     
-    
-    public GregorianCalendar getDataCriacao() {
+    public Tarefa() {
+    }
+    public String getDataCriacao() {
         return data_Cria;
     }
 
    
-    public GregorianCalendar getDataTermino() {
+    public String getDataTermino() {
         return data_Termina;
     }
 
  
-    public GregorianCalendar getDataVencimento() {
+    public String getDataVencimento() {
         return data_Venc;
     }
 

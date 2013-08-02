@@ -4,7 +4,6 @@
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
 
-import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaProjetoListagemControlador;
 
 /**
@@ -49,7 +48,7 @@ public class TelaProjetoListagem extends javax.swing.JInternalFrame {
         );
         panelListagemLayout.setVerticalGroup(
             panelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 363, Short.MAX_VALUE)
+            .addGap(0, 95, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
